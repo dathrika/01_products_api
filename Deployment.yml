@@ -19,32 +19,32 @@ spec:
       image: sagard1531/products_api
       ports:
       - containerPort: 8080
-      env:
+     # env:
       # From ConfigMap
-      - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
-        valueFrom:
-          configMapKeyRef:
-            name: products-config
-            key: spring.datasource.driver-class-name
+     # - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+      #  valueFrom:
+       #   configMapKeyRef:
+          #  name: products-config
+         #   key: spring.datasource.driver-class-name
 
-      - name: SPRING_DATASOURCE_URL
-        valueFrom:
-          configMapKeyRef:
-            name: products-config
-            key: spring.datasource.url
+    #  - name: SPRING_DATASOURCE_URL
+      #  valueFrom:
+         # configMapKeyRef:
+         #   name: products-config
+           # key: spring.datasource.url
 
       # From Secret
-      - name: SPRING_DATASOURCE_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: products-secret
-            key: spring.datasource.username
+     # - name: SPRING_DATASOURCE_USERNAME
+       # valueFrom:
+         # secretKeyRef:
+        #    name: products-secret
+         #   key: spring.datasource.username
       
-      - name: SPRING_DATASOURCE_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: products-secret
-            key: spring.datasource.password
+     # - name: SPRING_DATASOURCE_PASSWORD
+    #    valueFrom:
+        #  secretKeyRef:
+     #       name: products-secret
+        #    key: spring.datasource.password
               
 ---
 apiVersion: v1
