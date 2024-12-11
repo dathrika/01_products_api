@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t sagard1531/products .'
+                sh 'docker build -t sagard1531/products_api .'
             }
         }
         stage('Docker login') {
@@ -28,6 +28,16 @@ pipeline {
         }
         stage('Dockerhub push') {
             steps {
+                sh 'docker push sagard1531/products_api'
+            }
+        }
+        stage('K8 Deploy') {
+            steps {
+                sh 'kubectl apply -f Deployment.yml'
+            }
+        }
+    }
+}
                 sh 'docker push sagard1531/products .'
             }
         }
